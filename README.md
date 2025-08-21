@@ -1,69 +1,66 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# POC MCP Figma + @it-ds/ui Boilerplate
 
-Currently, two official plugins are available:
+## Descripción
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este proyecto es un boilerplate para pruebas rápidas con el MCP Server de Figma y la librería de diseño `@it-ds/ui`. Permite experimentar con prompts, estructura de proyectos y la integración directa entre Figma y React, facilitando la creación y testeo de interfaces de manera ágil.
 
-## Expanding the ESLint configuration
+## Tecnologías principales
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React** (18.x)
+- **Vite** (7.x)
+- **TypeScript**
+- **TailwindCSS**
+- **@it-ds/ui** (librería de componentes UI)
+- **react-router-dom**
+- **react-icons**
+- **ESLint** (con reglas recomendadas y soporte para TypeScript)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Objetivo
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- Probar y optimizar la integración entre Figma MCP y la librería de componentes.
+- Servir como entorno base para crear, testear y versionar rápidamente nuevas pantallas o flujos.
+- Permitir a cualquier desarrollador clonar el repo y comenzar a experimentar con prompts y selección de Figma usando MCP, sin preocuparse por la configuración inicial.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Instalación y uso
+
+```bash
+git clone https://github.com/[TU-ORG]/[TU-REPO].git
+cd [TU-REPO]
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Esto levanta el entorno en modo desarrollo. Puedes modificar `App.tsx` o crear nuevas ramas para guardar tus pruebas.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Flujo de trabajo recomendado
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Usa la rama principal como base limpia.
+- Crea una nueva rama para cada experimento o prueba.
+- Si una versión funciona bien, puedes dejarla documentada en su branch.
+- Si necesitas partir de cero, vuelve a la rama principal y comienza de nuevo.
+
+## Ejemplo de prompts y conexión con MCP
+
+1. Selecciona un nodo en Figma y usa el plugin MCP para generar el código.
+2. Copia el código generado y pégalo en el archivo correspondiente (`App.tsx` o un nuevo componente).
+3. Si el prompt requiere componentes de la librería `@it-ds/ui`, asegúrate de importarlos así:
+
+```tsx
+import { Button, Card } from '@it-ds/ui';
 ```
+
+4. Puedes experimentar con diferentes prompts, por ejemplo:
+
+> "Genera una pantalla de login usando los componentes de @it-ds/ui, con campos de usuario y contraseña, y un botón de ingresar centrado."
+
+> "Crea un dashboard con cards y un header, usando la paleta de colores institucional."
+
+5. Guarda tus pruebas en ramas separadas para mantener el boilerplate limpio.
+
+## Consideraciones
+
+- El proyecto está listo para conectar con MCP y recibir componentes desde Figma.
+- No requiere configuración adicional para comenzar a probar.
+- Puedes agregar screenshots, ejemplos de prompts o resultados en las ramas de tus pruebas.
+
