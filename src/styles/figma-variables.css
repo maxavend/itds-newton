@@ -1,0 +1,27 @@
+:@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800&display=swap');
+
+/* Auto-generated from Figma node 292:20703 */
+:root {
+  /* Colors */
+  --neutral-strongest: #1d1d1d;
+  --neutral-default: #585858;
+  --theme-primary: #000000;
+  --screen-base: #ffffff;
+
+  /* Spacing (use Tailwind native utilities where possible) */
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-12: 48px;
+
+  /* Typography */
+  --font-family-base: 'DM Sans', 'Open Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --font-size-base: 16px;
+  --line-height-500: 20px;
+}
+
+/* Expose some semantic tokens for components */
+.text-neutral-strongest { color: var(--neutral-strongest); }
+.text-neutral-default { color: var(--neutral-default); }
+.bg-screen-base { background-color: var(--screen-base); }

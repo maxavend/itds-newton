@@ -1,3 +1,6 @@
+/* Figma variables (import generated file) */
+@import './styles/figma-variables.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
