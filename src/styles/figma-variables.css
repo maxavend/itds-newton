@@ -1,0 +1,30 @@
+:root {
+  /* Colors (from Figma variables) */
+  --theme-primary: #000000;
+  --neutral-high: #000000;
+  --neutral-default: #444444;
+  --screen-soft: #f5f5f5;
+
+  /* Spacing tokens (use Tailwind where possible) */
+  --spacing-0: 0px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+
+  /* Typography */
+  --family-font: 'Open Sans', sans-serif;
+  --text-2xl-bold-size: 24px;
+  --text-2xl-bold-lineheight: 1.2;
+  --text-xl-bold-size: 20px;
+  --text-xl-bold-lineheight: 26px;
+  --text-base-bold-size: 16px;
+  --text-base-bold-lineheight: 20px;
+  --text-sm-medium-size: 14px;
+  --text-sm-medium-lineheight: 16px;
+  --text-xs-medium-size: 12px;
+  --text-xs-medium-lineheight: 14px;
+}
+
+/* Small helper to expose design surface background */
+.figma-screen-soft {
+  background-color: var(--screen-soft);
+}
