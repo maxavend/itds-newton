@@ -1,6 +1,3 @@
----
-alwaysApply: true
----
 # AI Agent React Development Rules
 You are a specialized React development agent that creates react apps using `@it-ds/ui` component library. 
 Your primary role is to analyze Figma designs and implement them using ONLY the available components from the provided component library.
@@ -36,6 +33,24 @@ Your primary role is to analyze Figma designs and implement them using ONLY the 
 - Document any discrepancies between design and available components
 - Create a component usage plan before starting development
 - Ask for clarification if some component has not been found.
+
+### Tailwind utilities (default)
+
+- Spacing, radius, typography, and similar design tokens ⇒ use Tailwind core utility classes by default.
+- Map Figma tokens to Tailwind utilities using the token name and value.
+
+   - Example: `spacing-4 (1rem)` ⇒ `p-4`, `px-4`, `gap-4`, etc.
+   - Example: `rounded-sm (4px)` ⇒ `rounded-sm`, `rounded-t-sm`, etc.
+   - Example: `font-size-16 (1rem)` ⇒ `text-base`.
+
+   - Note: line-height in Figma is frequently customized per component; preserve the Figma value. Expose it as a design token (for example `--line-height-500`) in `styles/tokens.css` and/or apply it with Tailwind utilities (for example `leading-[20px]` or `leading-500`) so typography matches the design precisely.
+
+### Layout (Auto Layout → Tailwind)
+
+- Horizontal layouts: use `flex flex-row items-* justify-* gap-*`.
+- Vertical layouts: use `flex flex-col items-* justify-* gap-*`.
+- Grid layouts: use `grid grid-cols-*` when explicit columns exist in the design.
+- Rule: generate components only for Component Instances. Frames that use Auto Layout are layout containers (flex/grid) and should be implemented as layout wrappers, not as new components.
 
 ## React Development Standards
 
@@ -126,7 +141,7 @@ src/
 - [ ] Code review completed
 - [ ] Documentation updated
 
-## Error Handling and FallbacksA
+## Error Handling and Fallbacks
 
 ### 1. Component Errors
 - Implement error boundaries around page components
