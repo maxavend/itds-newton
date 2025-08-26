@@ -41,7 +41,7 @@ const App: React.FC = () => {
 								</div>
 							</div>
 
-								<CardImage title="Gestión de techos" description="Encuentra información de mercadería en techos." image="">
+								<CardImage title="Gestión de techos" description="Encuentra información de mercadería en techos." image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-QZ6GKaebrFS_qBRnvY9qHVDuONgekzk75ssP6MCMF2Z99bpdubl2dZq4Z6yVJhE1o1Y&usqp=CAU">
 									<div className="p-4">
 										<Headline title="Gestión de techos" />
 										<Text size="base" weight="medium">Encuentra información de mercadería en techos.</Text>
