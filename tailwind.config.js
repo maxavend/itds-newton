@@ -13,10 +13,18 @@ export default {
         'screen-base': 'var(--screen-base)'
       },
       fontFamily: {
-        sans: ['var(--font-family-base)'],
+        sans: ['var(--family-font)'],
+        dm: ['var(--font-family-dm)'],
+      },
+      fontSize: {
+        '2xl': ['var(--text-2xl-size)', { lineHeight: 'var(--text-2xl-lineheight)' }],
+        'base': ['var(--text-base-size)', { lineHeight: 'var(--text-base-lineheight)' }],
+        'sm': ['var(--text-sm-size)', { lineHeight: 'var(--text-sm-lineheight)' }]
       },
       lineHeight: {
-        '500': 'var(--line-height-500)'
+        '2xl': 'var(--text-2xl-lineheight)',
+        'base': 'var(--text-base-lineheight)',
+        'sm': 'var(--text-sm-lineheight)'
       }
     },
   },

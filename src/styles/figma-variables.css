@@ -1,6 +1,6 @@
-:@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800&family=Open+Sans:wght@400;600;700&display=swap');
 
-/* Auto-generated from Figma node 292:20703 */
+/* Auto-generated from Figma node 294:22158 */
 :root {
   /* Colors */
   --neutral-strongest: #1d1d1d;
@@ -8,20 +8,30 @@
   --theme-primary: #000000;
   --screen-base: #ffffff;
 
-  /* Spacing (use Tailwind native utilities where possible) */
-  --spacing-2: 8px;
-  --spacing-3: 12px;
-  --spacing-4: 16px;
-  --spacing-6: 24px;
-  --spacing-12: 48px;
+  /* Spacing (prefer Tailwind native utilities) */
+  --spacing-3: 12; /* px */
+  --spacing-4: 16; /* px */
+  --spacing-6: 24; /* px */
+  --spacing-12: 48; /* px */
 
   /* Typography */
-  --font-family-base: 'DM Sans', 'Open Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  --font-size-base: 16px;
-  --line-height-500: 20px;
+  --family-font: 'Open Sans';
+  --font-family-dm: 'DM Sans', var(--family-font), system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --text-2xl-size: 24px;
+  --text-2xl-lineheight: 1.2;
+  --text-base-size: 16px;
+  --text-base-lineheight: 20px;
+  --text-sm-size: 14px;
+  --text-sm-lineheight: 16px;
+
+  --screen-base: #ffffff;
 }
 
-/* Expose some semantic tokens for components */
+/* Semantic helpers */
 .text-neutral-strongest { color: var(--neutral-strongest); }
 .text-neutral-default { color: var(--neutral-default); }
 .bg-screen-base { background-color: var(--screen-base); }
+
+/* Typography helpers (use with Tailwind where possible) */
+.font-dm { font-family: var(--font-family-dm); }
+.leading-2xl { line-height: var(--text-2xl-lineheight); }
