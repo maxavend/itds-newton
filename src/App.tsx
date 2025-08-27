@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Avatar, CardImage, Tabs, Select, Flex, IconButton } from '@it-ds/ui';
+import { Avatar, CardImage, Tabs, Select, Flex, ActionIcon } from '@it-ds/ui';
 import { BrowserRouter, Link } from 'react-router-dom';
 import gestionAltilloImage from './assets/gestion-altillo-image.png';
 import santaIsabelLogo from './assets/santa-isabel-logo.png';
@@ -41,7 +41,7 @@ const App: React.FC = () => {
 						</div>
 
 						<Flex className="items-center gap-3">
-							<IconButton Icon={MdOutlineNotifications} aria-label="notifications" size="m" />
+							<ActionIcon Icon={MdOutlineNotifications} aria-label="notifications" size="m" />
 							<div className="rounded-full p-[1px] bg-[#cefde7]">
 								<Avatar name="SA" />
 							</div>
@@ -62,8 +62,8 @@ const App: React.FC = () => {
 								{ id: 'summary', name: 'Resumen', Icon: MdOutlineDescription },
 							]}
 							defaultSelectedKey={'tasks'}
-							variant="box"
 							showIcons
+							variant='box'
 						>
 							<div key="tasks" className="p-0" />
 							<div key="tools" className="p-0" />
