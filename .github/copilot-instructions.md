@@ -11,8 +11,8 @@ Your primary role is to analyze Figma designs and implement them using ONLY the 
 - GET THE COMPONENT NAMES FROM HERE, DONT USE ITS CODE.
 
 ### 2. Component Library Integration
-- **MANDATORY**: Use only components from the established component library, search for the available components in `node_modules/@it-ds/ui/index.d.ts` 
-- **MANDATORY**: When a component is used, search for its props on its type file, for example if the component is Counter, search in `node_modules/@it-ds/ui/components/forms/Counter/types.d.ts`
+- **MANDATORY**: Use only components from the established component library, search for the available components in `node_modules/@it-ds/ui/components/category/ComponentName/index.d.ts` 
+- **MANDATORY**: When a component is used, search for its props on its type file, search in `node_modules/@it-ds/ui/components/category/ComponetName/types.d.ts`
 - Never create custom components that duplicate library functionality
 - If a needed component doesn't exist, flag it for library extension rather than creating inline solutions
 - Import components using the standardized import pattern: `import { ComponentName } from '@it-ds/ui'`
@@ -20,7 +20,7 @@ Your primary role is to analyze Figma designs and implement them using ONLY the 
 ## Figma MCP Tool Usage
 
 ### Design Analysis Protocol
-1. **Initial Scan**: Use MCP tool to get overall page structure and component hierarchy
+1. **Initial Scan**: Use MCP tool to get overall page structure and component hierarchy.
 2. **Detail Extraction**: Extract specific properties for each UI element:
    - Dimensions (width, height, padding, margins)
    - Typography (font-size, font-weight, line-height, letter-spacing)
@@ -29,28 +29,25 @@ Your primary role is to analyze Figma designs and implement them using ONLY the 
    - Responsive breakpoints and behaviors
 
 ### Component Mapping
-- Map each Figma component to corresponding library component
-- Document any discrepancies between design and available components
-- Create a component usage plan before starting development
-- Ask for clarification if some component has not been found.
+- Map each Figma component to its corresponding library component.
+- Document discrepancies between design and available components.
+- Create a usage plan before development.
+- Request clarification if a component is missing.
 
-### Tailwind utilities (default)
+### Token → Utility Mapping
+- Use Tailwind core utilities for spacing, radius, typography, etc.
+- Map Figma tokens to Tailwind utilities by name and value:
+  - `spacing-4 (1rem)` → `p-4`, `gap-4`
+  - `rounded-sm (4px)` → `rounded-sm`, `rounded-t-sm`
+  - `font-size-16 (1rem)` → `text-base`
+- Preserve Figma line-heights as tokens (`--line-height-500`) or via Tailwind (`leading-[20px]`).
 
-- Spacing, radius, typography, and similar design tokens ⇒ use Tailwind core utility classes by default.
-- Map Figma tokens to Tailwind utilities using the token name and value.
+### Layout Translation (Auto Layout → Tailwind)
+- Horizontal: `flex flex-row items-* justify-* gap-*`
+- Vertical: `flex flex-col items-* justify-* gap-*`
+- Grid: `grid grid-cols-*` when explicit columns exist
 
-   - Example: `spacing-4 (1rem)` ⇒ `p-4`, `px-4`, `gap-4`, etc.
-   - Example: `rounded-sm (4px)` ⇒ `rounded-sm`, `rounded-t-sm`, etc.
-   - Example: `font-size-16 (1rem)` ⇒ `text-base`.
-
-   - Note: line-height in Figma is frequently customized per component; preserve the Figma value. Expose it as a design token (for example `--line-height-500`) in `styles/tokens.css` and/or apply it with Tailwind utilities (for example `leading-[20px]` or `leading-500`) so typography matches the design precisely.
-
-### Layout (Auto Layout → Tailwind)
-
-- Horizontal layouts: use `flex flex-row items-* justify-* gap-*`.
-- Vertical layouts: use `flex flex-col items-* justify-* gap-*`.
-- Grid layouts: use `grid grid-cols-*` when explicit columns exist in the design.
-- Rule: generate components only for Component Instances. Frames that use Auto Layout are layout containers (flex/grid) and should be implemented as layout wrappers, not as new components.
+  Frames with Auto Layout are layout wrappers (flex/grid), not new components.
 
 ## React Development Standards
 
